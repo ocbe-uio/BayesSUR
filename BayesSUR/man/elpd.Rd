@@ -19,19 +19,22 @@ Return the predictiion accuracy measure from an object of class "BayesSUR". It i
 Measure the prediction accuracy by the elpd (expected log pointwise predictive density). The out-of-sample predictive fit can either be estimated by Bayesian leave-one-out cross-validation (LOO) or by widely applicable information criterion (WAIC) (Vehtari et al. 2017).
 }
 \examples{
+\dontrun{
 data("example_eQTL", package = "BayesSUR")
-hyperpar = list( a_w = 2 , b_w = 5 )
+hyperpar <- list(a_w = 2, b_w = 5)
 
 fit <- BayesSUR(Y = example_eQTL[["blockList"]][[1]],
                 X = example_eQTL[["blockList"]][[2]],
                 data = example_eQTL[["data"]], outFilePath = tempdir(),
-                nIter = 100, burnin = 50, nChains = 2, gammaPrior = "hotspot",
-                hyperpar = hyperpar, tmpFolder = "tmp/" )
+                nIter = 100, burnin = 50, nChains = 2,
+                gammaPrior = "hotspot",
+                hyperpar = hyperpar, tmpFolder = "tmp/")
 
 ## check output
 # print the prediction accuracy elpd (expected log pointwise predictive density)
 # by the Bayesian LOO estimate of out-of-sample predictive fit
 elpd(fit, method="LOO")
+}
 
 }
 \references{

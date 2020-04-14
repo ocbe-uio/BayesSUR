@@ -72,10 +72,11 @@ plotEstimator(
 Plot the posterior mean estimators from a "BayesSUR" class object, including the coefficients beta, latent indicator variable gamma and graph of responses.
 }
 \examples{
+\dontrun{
 data("example_eQTL", package = "BayesSUR")
 hyperpar <- list( a_w = 2 , b_w = 5 )
 
-fit <- BayesSUR(Y = example_eQTL[["blockList"]][[1]], 
+fit <- BayesSUR(Y = example_eQTL[["blockList"]][[1]],
                 X = example_eQTL[["blockList"]][[2]],
                 data = example_eQTL[["data"]], outFilePath = tempdir(),
                 nIter = 100, burnin = 50, nChains = 2, gammaPrior = "hotspot",
@@ -89,5 +90,5 @@ plotEstimator(fit)
 plotEstimator(fit, fig.tex = TRUE)
 system(paste(getOption("pdfviewer"), "ParamEstimator.pdf"))
 }
-
+}
 }
