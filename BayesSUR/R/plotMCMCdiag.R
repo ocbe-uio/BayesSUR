@@ -13,6 +13,7 @@
 #' @param ... other arguments for the plots of the log-likelihood and model size
 #'
 #' @examples
+#' \dontrun{
 #' data("example_eQTL", package = "BayesSUR")
 #' hyperpar <- list(a_w = 2, b_w = 5)
 #' fit <- BayesSUR(Y = example_eQTL[["blockList"]][[1]],
@@ -23,7 +24,7 @@
 #'
 #' ## check output
 #' plotMCMCdiag(fit)
-#' 
+#' }
 #' @export
 plotMCMCdiag <- function(object, nbloc=3, HIWg=NULL, header="", ...){
 

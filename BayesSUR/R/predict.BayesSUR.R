@@ -14,6 +14,7 @@
 #' @return Predicted values extracted from an object of class "BayesSUR". If the \code{BayesSUR} specified data standardization, the fitted values are base based on standardized data.
 #'
 #' @examples
+#' \dontrun{
 #' data("example_eQTL", package = "BayesSUR")
 #' hyperpar <- list( a_w = 2 , b_w = 5 )
 #'
@@ -25,7 +26,7 @@
 #'
 #' ## check prediction
 #' predict.val <- predict(fit, newx=example_eQTL[["blockList"]][[2]])
-#' 
+#' }
 #' @export
 predict.BayesSUR <- function(object, newx, type=c("response", "coefficients", "nonzero"), Pmax=0, ...){
 

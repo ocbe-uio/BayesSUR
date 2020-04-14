@@ -11,6 +11,7 @@
 #' @references Vehtari, A., Gelman, A., Gabry, J. (2017). \emph{Practical Bayesian model evaluation using leave-one-out cross-validation and WAIC.} Statistics and Computing, 27(5): 1413–1432.
 #'
 #' @examples
+#' \dontrun{
 #' data("example_eQTL", package = "BayesSUR")
 #' hyperpar <- list(a_w = 2, b_w = 5)
 #'
@@ -25,6 +26,7 @@
 #' # print the prediction accuracy elpd (expected log pointwise predictive density)
 #' # by the Bayesian LOO estimate of out-of-sample predictive fit
 #' elpd(fit, method="LOO")
+#' }
 #'
 #' @export
 elpd <- function(object, method="LOO"){

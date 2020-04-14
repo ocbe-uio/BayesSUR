@@ -25,6 +25,7 @@
 #' @references Congdon P. (2005). \emph{Bayesian Models for Categorical Data}. John Wiley & Sons, West Sussex, England.
 #'
 #' @examples
+#' \dontrun{
 #' data("example_eQTL", package = "BayesSUR")
 #' hyperpar <- list( a_w = 2 , b_w = 5 )
 #'
@@ -37,7 +38,7 @@
 #' ## check output
 #' # plot the conditional predictive ordinate (CPO)
 #' plotCPO(fit)
-#' 
+#' }
 #' @export
 plotCPO <- function(object, sum.responses=FALSE, outlier.mark=TRUE, outlier.thresh=0.01, scale.CPO=TRUE, x.loc=FALSE, axis.label=NULL, las=0, cex.axis=1, mark.pos=c(0,-.01), mark.color=2, mark.cex=0.8,
                     xlab="Observations", ylab=NULL){

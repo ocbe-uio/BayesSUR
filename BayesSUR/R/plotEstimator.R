@@ -27,6 +27,7 @@
 #' @param ... other arguments
 #'
 #' @examples
+#' \dontrun{
 #' data("example_eQTL", package = "BayesSUR")
 #' hyperpar <- list( a_w = 2 , b_w = 5 )
 #'
@@ -44,7 +45,7 @@
 #' plotEstimator(fit, fig.tex = TRUE)
 #' system(paste(getOption("pdfviewer"), "ParamEstimator.pdf"))
 #' }
-#' 
+#' }
 #' @export
 plotEstimator <- function(object, estimator="all", colorScale.gamma=grey((100:0)/100), colorScale.beta=c("blue","white","red"), legend.cex.axis=1, name.responses=NA,
                           name.predictors=NA, xlab="", ylab="", fig.tex=FALSE, output="ParamEstimator", header="", header.cex=2, tick=FALSE, mgp=c(2.5,1,0),

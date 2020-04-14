@@ -11,6 +11,7 @@
 #' if \code{estimator="beta"}, posterior mean of the response graph if \code{estimator="Gy"} and the CPO if \code{estimator="CPO"},
 #'
 #' @examples
+#' \dontrun{
 #' data("example_eQTL", package = "BayesSUR")
 #' hyperpar <- list( a_w = 2 , b_w = 5 )
 #'
@@ -23,7 +24,7 @@
 #' ## check output
 #' # extract the posterior mean of the coefficients matrix
 #' beta_hat <- getEstimator(fit, estimator="beta")
-#' 
+#' }
 #' @export
 getEstimator <- function(object, estimator="gamma", Pmax=0){
 

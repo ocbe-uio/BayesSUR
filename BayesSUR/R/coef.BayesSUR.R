@@ -10,6 +10,7 @@
 #' @return Estimated coefficients are from an object of class "BayesSUR". If the \code{BayesSUR} specified data standardization, the fitted values are base based on standardized data.
 #'
 #' @examples
+#' \dontrun{
 #' data("example_eQTL", package = "BayesSUR")
 #' hyperpar <- list( a_w = 2 , b_w = 5 )
 #'
@@ -22,6 +23,7 @@
 #' ## check prediction
 #' beta.hat <- coef(fit)
 #'
+#' }
 #' @export
 coef.BayesSUR <- function(object, Pmax=0, ...){
 

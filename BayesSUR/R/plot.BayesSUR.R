@@ -8,6 +8,7 @@
 #' @param ... other arguments
 #'
 #' @examples
+#' \dontrun{
 #' data("example_eQTL", package = "BayesSUR")
 #' hyperpar = list( a_w = 2 , b_w = 5 )
 #'
@@ -23,7 +24,7 @@
 #' \donttest{
 #' plot(fit)
 #' }
-#' 
+#' }
 #' @export
 plot.BayesSUR <- function(x, which = c(1L:4L), ...){
 

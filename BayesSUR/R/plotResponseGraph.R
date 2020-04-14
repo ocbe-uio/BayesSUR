@@ -15,6 +15,7 @@
 #' @param ... other arguments
 #'
 #' @examples
+#' \dontrun{
 #' data("example_eQTL", package = "BayesSUR")
 #' hyperpar <- list( a_w = 2 , b_w = 5 )
 #'
@@ -27,7 +28,7 @@
 #' ## check output
 #' # show the graph relationship between responses
 #' plotResponseGraph(fit)
-#' 
+#' }
 #' @export
 plotResponseGraph <- function(object, PmaxResponse=0.5, PtrueResponse=NULL, name.responses=NA, edge.weight=FALSE, label.color="black", node.size=30, node.color="dodgerblue", ...){
 

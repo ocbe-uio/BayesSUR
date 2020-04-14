@@ -10,6 +10,7 @@
 #' @return Return a short summary from an object of class "BayesSUR", including the number of selected predictors with mPIP>\code{Pmax} and the expected log pointwise predictive density estimates (i.e., elpd.LOO and elpd.WAIC).
 #'
 #' @examples
+#' \dontrun{
 #' data("example_eQTL", package = "BayesSUR")
 #' hyperpar = list( a_w = 2 , b_w = 5 )
 #'
@@ -22,7 +23,7 @@
 #' ## check output
 #' # show the print information
 #' print(fit)
-#' 
+#' }
 #' @export
 print.BayesSUR <- function(x, Pmax=0.5, ...){
 

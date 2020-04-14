@@ -14,6 +14,7 @@
 #' top 10 responses on average mPIP across all predictors, Expected log pointwise predictive density (elpd) estimates, MCMC specification, model specification (i.e., covariance prior and gamma prior) and hyper-parameters.
 #'
 #' @examples
+#' \dontrun{
 #' data(example_eQTL, package = "BayesSUR")
 #' hyperpar = list( a_w = 2 , b_w = 5 )
 #'
@@ -26,7 +27,7 @@
 #' ## check output
 #' # show the summary information
 #' summary(fit)
-#' 
+#' }
 #' @export
 summary.BayesSUR <- function(object, Pmax=0.5, ...){
 

@@ -33,6 +33,7 @@
 #' @param ... other arguments
 #'
 #' @examples
+#' \dontrun{
 #' data("example_eQTL", package = "BayesSUR")
 #' hyperpar <- list( a_w = 2 , b_w = 5 )
 #'
@@ -45,9 +46,11 @@
 #' ## check output
 #' # show the Network representation of the associations between responses and features
 #' plotNetwork(fit)
-#' 
-#' @export 
-plotNetwork <- function(object, includeResponse=NULL, excludeResponse=NULL, includePredictor=NULL, excludePredictor=NULL, 
+#' }
+#'
+#'
+#' @export
+plotNetwork <- function(object, includeResponse=NULL, excludeResponse=NULL, includePredictor=NULL, excludePredictor=NULL,
                         MatrixGamma=NULL, PmaxPredictor=0.5, PmaxResponse=0.5, nodesizePredictor=2, nodesizeResponse=15, no.isolates=FALSE,
                         lineup=1.2, gray.alpha=0.6, edgewith.response=5, edgewith.predictor=2, edge.weight=FALSE, label.predictor=NULL,
                         label.response=NULL, color.predictor=NULL,color.response=NULL, name.predictors=NULL,name.responses=NULL,
