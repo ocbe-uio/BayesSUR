@@ -17,20 +17,21 @@
 Convenience function to create a selection of plots for a "BayesSUR" class object. They are plots of estimators, response graph, network, manhattan and MCMC diagnosis indexed by numbers 1:5.
 }
 \examples{
+\dontrun{
 data("example_eQTL", package = "BayesSUR")
 hyperpar = list( a_w = 2 , b_w = 5 )
 
-fit <- BayesSUR(Y = example_eQTL[["blockList"]][[1]], 
+fit <- BayesSUR(Y = example_eQTL[["blockList"]][[1]],
                 X = example_eQTL[["blockList"]][[2]],
                 data = example_eQTL[["data"]], outFilePath = tempdir(),
                 nIter = 100, burnin = 0, nChains = 2, gammaPrior = "hotspot",
                 hyperpar = hyperpar, tmpFolder = "tmp/" )
 
 ## check output
-# Show the interactive plots. Note that it needs at least 2000*(nbloc+1) iterations 
-# for the diagnosis plots where nbloc=3 by default 
+# Show the interactive plots. Note that it needs at least 2000*(nbloc+1) iterations
+# for the diagnosis plots where nbloc=3 by default
 \donttest{
 plot(fit)
 }
-
+}
 }

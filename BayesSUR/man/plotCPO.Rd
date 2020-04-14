@@ -57,10 +57,11 @@ Plot the conditional predictive ordinate (CPO) for each individual of a fitted m
 The default threshold for the CPOs to detect the outliers is 0.01 by Congdon (2005). It can be tuned by the argument \code{outlier.thresh}.
 }
 \examples{
+\dontrun{
 data("example_eQTL", package = "BayesSUR")
 hyperpar <- list( a_w = 2 , b_w = 5 )
 
-fit <- BayesSUR(Y = example_eQTL[["blockList"]][[1]], 
+fit <- BayesSUR(Y = example_eQTL[["blockList"]][[1]],
                 X = example_eQTL[["blockList"]][[2]],
                 data = example_eQTL[["data"]], outFilePath = tempdir(),
                 nIter = 100, burnin = 50, nChains = 2, gammaPrior = "hotspot",
@@ -69,7 +70,7 @@ fit <- BayesSUR(Y = example_eQTL[["blockList"]][[1]],
 ## check output
 # plot the conditional predictive ordinate (CPO)
 plotCPO(fit)
-
+}
 }
 \references{
 Statisticat, LLC (2013). \emph{Bayesian Inference.} Farmington, CT: Statisticat, LLC.

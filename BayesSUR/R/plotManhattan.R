@@ -10,8 +10,8 @@
 #' @param mark.pos the location of the marked text relative to the point
 #' @param xlab1 a title for the x axis of Manhattan-like plot for the mPIP
 #' @param ylab1 a title for the y axis of Manhattan-like plot for the mPIP
-#' @param xlab2 a title for the x axis of Manhattan-like plot for the numbers of responses 
-#' @param ylab2 a title for the y axis of Manhattan-like plot for the numbers of responses 
+#' @param xlab2 a title for the x axis of Manhattan-like plot for the numbers of responses
+#' @param ylab2 a title for the y axis of Manhattan-like plot for the numbers of responses
 #' @param threshold threshold for showing number of response variables significantly associated with each feature
 #' @param las graphical parameter of plot.default
 #' @param cex.axis graphical parameter of plot.default
@@ -19,28 +19,29 @@
 #' @param mark.cex the fontsize of the marked text. The default fontsize is 0.8.
 #' @param header the main title
 #' @param ... other arguments
-#' 
+#'
 #' @examples
+#' \dontrun{
 #' data("example_eQTL", package = "BayesSUR")
 #' hyperpar <- list( a_w = 2 , b_w = 5 )
-#' 
-#' fit <- BayesSUR(Y = example_eQTL[["blockList"]][[1]], 
+#'
+#' fit <- BayesSUR(Y = example_eQTL[["blockList"]][[1]],
 #'                 X = example_eQTL[["blockList"]][[2]],
 #'                 data = example_eQTL[["data"]], outFilePath = tempdir(),
 #'                 nIter = 100, burnin = 50, nChains = 2, gammaPrior = "hotspot",
 #'                 hyperpar = hyperpar, tmpFolder = "tmp/" )
-#' 
+#'
 #' ## check output
 #' # show the Manhattan-like plots
 #' plotManhattan(fit)
-#' 
+#' }
 #' @export
 plotManhattan <- function(object, which=c(1,2), x.loc=FALSE, axis.label="auto", mark.responses=NULL, xlab1="Predictors", ylab1="mPIP", xlab2="Predictors", ylab2="No. of responses",
                           threshold=0.5,las=0, cex.axis=1, mark.pos=c(0,0), mark.color=2, mark.cex=0.8, header="", ...){
-  
+
   object$output[-1] <- paste(object$output$outFilePath,object$output[-1],sep="")
   gamma <- as.matrix( read.table(object$output$gamma) )
-  
+
   if(is.null(axis.label)){
     x.loc <- 1:nrow(gamma)
     names(x.loc) <- 1:nrow(gamma)
@@ -52,27 +53,27 @@ plotManhattan <- function(object, which=c(1,2), x.loc=FALSE, axis.label="auto", 
     }else{
       if( (!match(axis.label, name.predictors)[1]) & (!x.loc[1]) )
         stop("The given predictor names are not consistent with the data")
-      
+
       if(!x.loc[1]) x.loc <- match( axis.label, name.predictors )
       names(x.loc) <- axis.label
     }
   }
-  
+
   opar <- par(no.readonly=TRUE)
-  on.exit(par(opar))    
+  on.exit(par(opar))
   if(sum(which==c(1,2)) == 2){
     par(mfrow=c(2,1))
   }else{
     par(mfrow=c(1,1))
   }
-    
-  # Manhattan plot for marginal posterior inclusion probabilities (mPIP) 
+
+  # Manhattan plot for marginal posterior inclusion probabilities (mPIP)
   if(1 %in% which){
-    par(mar=c(4,4,4,2)) 
-  
+    par(mar=c(4,4,4,2))
+
   plot.default(as.vector(gamma) ~ rep(1:nrow(gamma), times=ncol(gamma)), xlim=c(1,nrow(gamma)), ylim=c(0,max(gamma)), xaxt = 'n',bty = "n", ylab=ylab1, xlab=xlab1, main="", pch=19, ...)
   axis(1, at=x.loc, labels=names(x.loc), las=las, cex.axis=cex.axis); box()
-  
+
   # mark the names of the specified response variables corresponding to the given predictors
   if(!is.null(mark.responses)){
     name.responses <- colnames(read.table(object$output$Y,header=T))
@@ -83,8 +84,8 @@ plotManhattan <- function(object, which=c(1,2), x.loc=FALSE, axis.label="auto", 
     }
   }
   }
-  
-  # Manhattan plot for numbers of responses 
+
+  # Manhattan plot for numbers of responses
   if(2 %in% which){
     par(mar=c(5,4,3,2))
   no.gamma <- rowSums(gamma>=threshold)
@@ -94,5 +95,5 @@ plotManhattan <- function(object, which=c(1,2), x.loc=FALSE, axis.label="auto", 
   }
 
   title(paste("\n\n",header,sep=""), outer=T)
-  
+
 }

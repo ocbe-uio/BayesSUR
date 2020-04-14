@@ -4,7 +4,9 @@
 \name{example_GDSC_targets}
 \alias{example_GDSC_targets}
 \title{Indexes list of target genes corresponding the \code{example_GDSC} data set}
-\format{An object of class \code{list} of length 2.}
+\format{
+An object of class \code{list} of length 2.
+}
 \usage{
 example_GDSC_targets
 }
