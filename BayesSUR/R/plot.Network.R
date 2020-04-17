@@ -48,7 +48,7 @@
 #' # show the Network representation of the associations between responses and features
 #' network <- getEstimator(fit, estimator = c("gamma","Gy"))
 #' plot(network)
-#'
+#' }
 #' @export
 plot.Network <- function(object, includeResponse=NULL, excludeResponse=NULL, includePredictor=NULL, excludePredictor=NULL,
                         MatrixGamma=NULL, PmaxPredictor=0.5, PmaxResponse=0.5, nodesizePredictor=2, nodesizeResponse=15, no.isolates=FALSE,

@@ -69,7 +69,7 @@ fit <- BayesSUR(Y = example_eQTL[["blockList"]][[1]],
 # plot the conditional predictive ordinate (CPO)
 CPO <- getEstimator(fit, estimator="CPO")
 plot(CPO)
-
+}
 }
 \references{
 Statisticat, LLC (2013). \emph{Bayesian Inference.} Farmington, CT: Statisticat, LLC.

@@ -37,7 +37,7 @@
 #' # show the Manhattan-like plots
 #' gamma <- getEstimator(fit, estimator="gamma")
 #' plot(gamma)
-#'
+#' }
 #' @export
 plot.Manhattan <- function(object, which=c(1,2), x.loc=FALSE, axis.label="auto", mark.responses=NULL, xlab1="Predictors", ylab1="mPIP", xlab2="Predictors", ylab2="No. of responses",
                           threshold=0.5,las=0, cex.axis=1, mark.pos=c(0,0), mark.color=2, mark.cex=0.8, header="", ...){

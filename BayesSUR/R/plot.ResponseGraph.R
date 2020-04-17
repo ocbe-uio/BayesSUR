@@ -30,7 +30,7 @@
 #' # show the graph relationship between responses
 #' Gy <- getEstimator(fit, estimator = "Gy")
 #' plot(Gy)
-#'
+#' }
 #' @export
 plot.ResponseGraph <- function(object, PmaxResponse=0.5, PtrueResponse=NULL, name.responses=NA, edge.weight=FALSE, label.color="black", node.size=30, node.color="dodgerblue", ...){
 

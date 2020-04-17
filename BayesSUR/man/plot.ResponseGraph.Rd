@@ -54,5 +54,5 @@ fit <- BayesSUR(Y = example_eQTL[["blockList"]][[1]],
 # show the graph relationship between responses
 Gy <- getEstimator(fit, estimator = "Gy")
 plot(Gy)
-
+}
 }

@@ -41,7 +41,7 @@
 #' ## check output
 #' # Plot the estimators from the fitted object
 #' \donttest{
-<' estimators <- getEstimator(fit, estimator = c("beta","gamma","Gy"))
+#' estimators <- getEstimator(fit, estimator = c("beta","gamma","Gy"))
 #' plot(estimators)
 #'
 #' plot(estimators, fig.tex = TRUE)

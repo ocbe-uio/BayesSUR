@@ -105,5 +105,5 @@ fit <- BayesSUR(Y = example_eQTL[["blockList"]][[1]],
 # show the Network representation of the associations between responses and features
 network <- getEstimator(fit, estimator = c("gamma","Gy"))
 plot(network)
-
+}
 }

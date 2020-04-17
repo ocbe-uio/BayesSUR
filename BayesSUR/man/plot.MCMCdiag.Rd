@@ -36,5 +36,5 @@ fit <- BayesSUR(Y = example_eQTL[["blockList"]][[1]],
 ## check output
 MCMCdiag <- getEstimator(fit, estimator = "logP")
 plot(MCMCdiag)
-
+}
 }

@@ -78,5 +78,5 @@ fit <- BayesSUR(Y = example_eQTL[["blockList"]][[1]],
 # show the Manhattan-like plots
 gamma <- getEstimator(fit, estimator="gamma")
 plot(gamma)
-
+}
 }

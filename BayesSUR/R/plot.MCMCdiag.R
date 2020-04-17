@@ -27,7 +27,7 @@
 #' ## check output
 #' MCMCdiag <- getEstimator(fit, estimator = "logP")
 #' plot(MCMCdiag)
-#'
+#' }
 #' @export
 plot.MCMCdiag <- function(object, nbloc=3, HIWg=NULL, header="", ...){
 

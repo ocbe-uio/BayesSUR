@@ -21,7 +21,7 @@ Measure the prediction accuracy by the elpd (expected log pointwise predictive d
 \examples{
 \dontrun{
 data("example_eQTL", package = "BayesSUR")
-hyperpar <- list(a_w = 2, b_w = 5)
+hyperpar = list( a_w = 2 , b_w = 5 )
 
 set.seed(9173)
 fit <- BayesSUR(Y = example_eQTL[["blockList"]][[1]],

@@ -39,7 +39,7 @@
 #' # plot the conditional predictive ordinate (CPO)
 #' CPO <- getEstimator(fit, estimator="CPO")
 #' plot(CPO)
-#'
+#' }
 #' @export
 plot.CPO <- function(object, outlier.mark=TRUE, outlier.thresh=0.01, scale.CPO=TRUE, x.loc=FALSE, axis.label=NULL, las=0, cex.axis=1, mark.pos=c(0,-.01), mark.color=2, mark.cex=0.8,
                     xlab="Observations", ylab=NULL){
@@ -53,4 +53,4 @@ plot.CPO <- function(object, outlier.mark=TRUE, outlier.thresh=0.01, scale.CPO=T
 
   object$output[-1] <- paste(object$output$outFilePath,object$output[-1],sep="")
   CPO <- as.matrix( read.table(object$output$CPO) )
-
+}
