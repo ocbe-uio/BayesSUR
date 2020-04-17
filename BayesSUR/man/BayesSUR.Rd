@@ -93,7 +93,7 @@ if the 'data' argument is not provided, these needs to be matrices containing th
 
 \item{output_X}{allow ( \code{TRUE} ) or suppress ( \code{FALSE} ) the output for predictors dataset X.}
 
-\item{hyperpar}{a list of named hypeparameters to use instead of the default values. Valid names are mrf_d, mrf_e, a_sigma, b_sigma, a_tau, b_tau, nu, a_eta, b_eta, a_o, b_o, a_pi, b_pi, a_w and b_w. 
+\item{hyperpar}{a list of named hypeparameters to use instead of the default values. Valid names are mrf_d, mrf_e, a_sigma, b_sigma, a_tau, b_tau, nu, a_eta, b_eta, a_o, b_o, a_pi, b_pi, a_w and b_w.
 Their default values are a_w=2, b_w=5, a_omega=1, b_omega=1, a_o=2, b_o=p-2, a_pi=2, b_pi=1, nu=s+2, a_tau=0.1, b_tau=10, a_eta=0.1, b_eta=1, a_sigma=1, b_sigma=1, mrf_d=-3 and mrf_e=0.03. See the vignette for more information.}
 
 \item{tmpFolder}{the path to a temporary folder where intermediate data files are stored (will be erased at the end of the chain) default to local tmpFolder}
@@ -103,22 +103,22 @@ An object of class "BayesSUR":
 \itemize{
 \item status - the running status
 \item input - a list of all input parameters by the user
-\item output - a list of the all output filenames: 
+\item output - a list of the all output filenames:
 \itemize{
 \item "\code{*_logP_out.txt}" - contains each row for the \eqn{1000t}-th iteration's log-likelihoods of parameters, i.e., Tau, Eta, JunctionTree, SigmaRho, O, Pi, Gamma, W, Beta and data conditional log-likelihood depending on the models.
-\item "\code{*_gamma_out.txt}" - posterior mean of the latent indicator matrix. 
+\item "\code{*_gamma_out.txt}" - posterior mean of the latent indicator matrix.
 \item "\code{*_pi_out.txt}" - posterior mean of the predictor effects (prospensity) by decomposing the probability of the latent indicator.
 \item "\code{*_hotspot_tail_p_out.txt}" - posterior mean of the hotspot tail probability. Only available for the hotspot prior on the gamma.
 \item "\code{*_beta_out.txt}" - posterior mean of the coefficients matrix.
-\item "\code{*_G_out.txt}" - posterior mean of the response graph. Only available for the HIW prior on the covariance. 
+\item "\code{*_G_out.txt}" - posterior mean of the response graph. Only available for the HIW prior on the covariance.
 \item "\code{*_sigmaRho_out.txt}" - posterior mean of the transformed parameters. Not available for the IG prior on the covariance.
 \item "\code{*_model_size_out.txt}" - contains each row for the\eqn{1000t}-th iteration's model sizes of the multiple response variables.
 \item "\code{*_model_visit_g_out.txt}" - contains each row for the nonzero indices of the vectorized estimated graph matrix for each iteration.
 \item "\code{*_model_visit_gamma_out.txt}" - contains each row for the nonzero indices of the vectorized estimated gamma matrix for each iteration.
-\item "\code{*_CPO_out.txt}" - the (scaled) conditional predictive ordinates (CPO). 
+\item "\code{*_CPO_out.txt}" - the (scaled) conditional predictive ordinates (CPO).
 \item "\code{*_CPOsumy_out.txt}" - the (scaled) conditional predictive ordinates (CPO) with joint posterior predictive of the response variables.
-\item "\code{*_WAIC_out.txt}" - the widely applicable information criterion (WAIC). 
-\item "\code{*_Y.txt}" - responses dataset. 
+\item "\code{*_WAIC_out.txt}" - the widely applicable information criterion (WAIC).
+\item "\code{*_Y.txt}" - responses dataset.
 \item "\code{*_X.txt}" - predictors dataset.
 \item "\code{*_X0.txt}" - fixed predictors dataset.
 }
@@ -126,9 +126,9 @@ An object of class "BayesSUR":
 }
 }
 \description{
-Main function of the package. Fits a range of models introduced in the package vignette \code{BayesSUR.pdf}. Returns an object of S3 class BayesSUR. 
-There are three options for the prior on the residual covariance matrix (i.e., independent inverse-Gamma, inverse-Wishart and hyper-inverse Wishart) 
-and three options for the prior on the latent indicator variable (i.e., independent Bernoulli, hotspot and Markov random field). 
+Main function of the package. Fits a range of models introduced in the package vignette \code{BayesSUR.pdf}. Returns an object of S3 class BayesSUR.
+There are three options for the prior on the residual covariance matrix (i.e., independent inverse-Gamma, inverse-Wishart and hyper-inverse Wishart)
+and three options for the prior on the latent indicator variable (i.e., independent Bernoulli, hotspot and Markov random field).
 So there are nine models in total. See details for their combinations.
 }
 \details{
@@ -138,14 +138,15 @@ The nine models specified through the arguments \code{covariancePrior} and \code
                 \tab \eqn{\gamma_{jk}}~Bernoulli \tab \eqn{\gamma_{jk}}~hotspot \tab \eqn{\gamma_{jk}}~MRF \cr
   \eqn{C}~indep \tab HRR-B                       \tab HRR-H                     \tab HRR-M           \cr
   \eqn{C}~IW    \tab dSUR-B                      \tab dSUR-H                    \tab dSUR-M          \cr
-  \eqn{C}~HIW   \tab SSUR-B                      \tab SSUR-H                    \tab SSUR-M           
+  \eqn{C}~HIW   \tab SSUR-B                      \tab SSUR-H                    \tab SSUR-M
 }
 }
 \examples{
+
 data("example_eQTL", package = "BayesSUR")
 hyperpar <- list( a_w = 2 , b_w = 5 )
 set.seed(9173)
-fit <- BayesSUR(Y = example_eQTL[["blockList"]][[1]], 
+fit <- BayesSUR(Y = example_eQTL[["blockList"]][[1]],
                 X = example_eQTL[["blockList"]][[2]],
                 data = example_eQTL[["data"]], outFilePath = tempdir(),
                 nIter = 100, burnin = 50, nChains = 2, gammaPrior = "hotspot",

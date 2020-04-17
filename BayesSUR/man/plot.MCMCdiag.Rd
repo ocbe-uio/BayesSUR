@@ -11,7 +11,7 @@
 
 \item{nbloc}{number of splits for the last half iterations after substracting burn-in length}
 
-\item{HIWg}{diagnostic plot of the response graph. Default is \code{NULL}. \code{HIW="degree"} prints the diagnostic of the degrees of response nodes. \code{HIW="edges"} prints the diagnostic 
+\item{HIWg}{diagnostic plot of the response graph. Default is \code{NULL}. \code{HIW="degree"} prints the diagnostic of the degrees of response nodes. \code{HIW="edges"} prints the diagnostic
 of every edge between two responses. \code{HIW="lik"} prints the diagnostic of the posterior likelihoods of the hyperparameters related to the response relationships}
 
 \item{header}{the main title}
@@ -22,11 +22,12 @@ of every edge between two responses. \code{HIW="lik"} prints the diagnostic of t
 Show trace plots and diagnostic density plots of a fitted model object of class "BayesSUR".
 }
 \examples{
+\dontrun{
 data("example_eQTL", package = "BayesSUR")
 hyperpar <- list( a_w = 2 , b_w = 5 )
 
 set.seed(9173)
-fit <- BayesSUR(Y = example_eQTL[["blockList"]][[1]], 
+fit <- BayesSUR(Y = example_eQTL[["blockList"]][[1]],
                 X = example_eQTL[["blockList"]][[2]],
                 data = example_eQTL[["data"]], outFilePath = tempdir(),
                 nIter = 100, burnin = 50, nChains = 2, gammaPrior = "hotspot",

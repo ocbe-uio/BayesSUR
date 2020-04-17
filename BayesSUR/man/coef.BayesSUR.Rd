@@ -20,11 +20,12 @@ Estimated coefficients are from an object of class "BayesSUR". If the \code{Baye
 Extract the posterior mean of the coefficients of a "BayesSUR" class object
 }
 \examples{
+\dontrun{
 data("example_eQTL", package = "BayesSUR")
 hyperpar <- list( a_w = 2 , b_w = 5 )
 
 set.seed(9173)
-fit <- BayesSUR(Y = example_eQTL[["blockList"]][[1]], 
+fit <- BayesSUR(Y = example_eQTL[["blockList"]][[1]],
                 X = example_eQTL[["blockList"]][[2]],
                 data = example_eQTL[["data"]], outFilePath = tempdir(),
                 nIter = 100, burnin = 50, nChains = 2, gammaPrior = "hotspot",
@@ -33,4 +34,5 @@ fit <- BayesSUR(Y = example_eQTL[["blockList"]][[1]],
 ## check prediction
 beta.hat <- coef(fit)
 
+}
 }
